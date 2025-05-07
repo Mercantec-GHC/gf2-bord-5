@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.Design;
 
 namespace Opgaver
 {
@@ -26,6 +27,11 @@ namespace Opgaver
 
             Console.WriteLine("Indtast en streng: ");
             // Lav opgaven herunder!
+            string message = Console.ReadLine();
+            Console.WriteLine(message);
+
+
+
         }
 
         public static void Int1()
@@ -36,6 +42,8 @@ namespace Opgaver
 
             Console.WriteLine("Indtast et tal: ");
             // Lav opgaven herunder!
+            int tal = int.Parse(Console.ReadLine());
+            Console.WriteLine(tal);
         }
 
         public static void Double1()
@@ -46,6 +54,8 @@ namespace Opgaver
 
             Console.WriteLine("Indtast et decimaltal: ");
             // Lav opgaven herunder!
+            decimal tal = decimal.Parse( Console.ReadLine() );
+            Console.WriteLine(tal);
         }
 
         public static void Bool1()
@@ -56,6 +66,12 @@ namespace Opgaver
 
             Console.WriteLine("Indtast en sandhedsværdi (sandt/falsk): ");
             // Lav opgaven herunder!
+            string input = Console.ReadLine();
+            bool sandhedsværdi;
+            if (bool.TryParse(input,out sandhedsværdi))
+            Console.WriteLine("Du indtastede: " + sandhedsværdi);
+            else
+                Console.WriteLine("Det var ikke en gyldig sandhedsværdi (skriv 'sandt' eller 'falsk'");
         }
 
         // Mini-projekt: Personlig profil (skabelon)
@@ -69,6 +85,13 @@ namespace Opgaver
             );
             Console.WriteLine("Eksempel: Hej, jeg hedder X, er X år gammel og kommer fra X!");
             // Lav opgaven herunder!
+            Console.WriteLine("Indtast dit navn: ");
+            string navn = Console.ReadLine();
+            int alder = int.Parse(Console.ReadLine());
+            string hjemby = Console.ReadLine();
+            Console.WriteLine($"Hej,jeg hedder {navn}, er {alder} år gammel og kommer fra {hjemby} !\");");
+
+
         }
 
         // Mini-projekt 2: BMI-beregner (skabelon)
@@ -83,6 +106,13 @@ namespace Opgaver
             Console.WriteLine(
                 "Tip: BMI beregnes som vægt divideret med højde i anden (BMI = vægt / (højde * højde))."
             );
+            Console.WriteLine("Indtast din vægt i kg: ");
+            double vægt = double.Parse(Console.ReadLine());
+            Console.WriteLine("Indtast din højde i meter: ");
+            double højde = double.Parse(Console.ReadLine());
+            double bmi = vægt / (højde * højde);
+            Console.WriteLine($"Din BMI er:{bmi:F2}");
+
         }
     }
 }
